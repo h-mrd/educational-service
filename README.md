@@ -35,3 +35,7 @@ apachectl restart
 if you can need to inspect this container, you must use ```docker inspect unit``` ;)
 
 ### implementation with PHP
+This service has two parts:
+1. View the lessons provided in the semester: In this section, the list of lessons presented in the form of a table is displayed to the user.
+
+2. Select the unit and remove the selected course. First, a list of courses is displayed to the user. The user can select the courses and click the "Apply" button. This will display a list at the bottom of this table that shows the user's selected courses. The user can also remove the course from this list.
