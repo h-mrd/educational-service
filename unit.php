@@ -1,5 +1,5 @@
 <?php
-	//$studentID = 1;
+	$studentID = 1;
 	$servername = "db_service_host:3306";
 	$dbname = "cc_project_database";
 	$username = "auth_service_user";
