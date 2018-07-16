@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>صفحه اصلی پرتال دانشجو</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="source/bootstrap.min.css" type="text/css" rel="stylesheet"/>
+        <link href="source/main-style.css" rel="stylesheet" type="text/css"/>
+        <script src="source/bootstrap/js/bootstrap.min.js" ></script>
+    </head>
+    <body>
+
+        <div class="main-page">
+            <div class="title-main">
+                <div class="col-sm-6">
+                    <a href="index.html"> <img src="source/delete.gif"> </a>
+                    <a href="main.html"> <img src="source/ihome.png"></a>
+                </div>
+                <div class="col-sm-6">
+
+                </div>
+            </div>
+            <div class="col-sm-9 col-content">
+
+            </div>
+            <div class="col-sm-3 col-menu">
+
+                <ul id="accordion" class="accordion">
+                    <li>
+                        <div class="link">شخصی</div>
+                        <ul class="submenu">
+                            <li><a href="#">مشخصات دانشجو</a></li>
+                            <li><a href="#">اطلاعات شخصی</a></li>
+                            <li><a href="#">اصلاح شماره ملی</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <div class="link">آموزشی</div>
+                        <ul class="submenu">
+                            <li><a href="./unit/course_list.php">دروس ارائه شده در ترم</a></li>
+                            
+                            <li><a href="./unit/unit.php">انتخاب واحد و حذف واحد</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <div class="link">تغذیه</div>
+                        <ul class="submenu">
+                            <li><a href="http://172.100.100.130:80/food/food_reserve.php">رزرو و لغو غذا</a></li>
+                           
+                        </ul>
+                    </li>
+                    <li>
+                        <div class="link">کتابخانه</div>
+                        <ul class="submenu">
+                            <li><a href="http://172.100.100.140:80/book/book_search.php">جست و جو</a></li>
+                            <li><a href="http://172.100.100.140:80/book/book_reserve.php">رزرو کتاب</a></li>
+                            <li><a href="http://172.100.100.140:80/book/book_list.php">کتاب های امانت گرفته شده</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <script src="source/jquery-1.11.1.min.js"></script> 
+                <script>
+                    $(function() {
+                        var Accordion = function(el, multiple) {
+                            this.el = el || {};
+                            this.multiple = multiple || false;
+
+                            // Variables privadas
+                            var links = this.el.find('.link');
+                            // Evento
+                            links.on('click', {el: this.el, multiple: this.multiple}, this.dropdown)
+                        }
+
+                        Accordion.prototype.dropdown = function(e) {
+                            var $el = e.data.el;
+                            $this = $(this),
+                                    $next = $this.next();
+
+                            $next.slideToggle();
+                            $this.parent().toggleClass('open');
+
+                            if (!e.data.multiple) {
+                                $el.find('.submenu').not($next).slideUp().parent().removeClass('open');
+                            }
+                            ;
+                        }
+
+                        var accordion = new Accordion($('#accordion'), false);
+                    });
+                </script>
+            </div>
+        </div>
+
+    </body>
+</html>            
+        
